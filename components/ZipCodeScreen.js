@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, FlatList, TouchableHighlight } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -20,19 +20,20 @@ const ZipItem = ({ place, code, navigation }) => (
     </TouchableHighlight>
 )
 
-
 const _keyExtractor = item => item.code
 
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <View>
-            <FlatList
-                data={availableZipItems}
-                keyExtractor={_keyExtractor}
-                renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
-            />
-            <StatusBar style="auto" />
+        <View style={styles.BlackImage}>
+            <ImageBackground source={require('../bg.jpg')} style={styles.BackDrop}> 
+                <FlatList
+                    data={availableZipItems}
+                    keyExtractor={_keyExtractor}
+                    renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
+                />
+                <StatusBar style="auto" />
+            </ImageBackground>
         </View>
     );
 }
@@ -49,4 +50,12 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: 'black',
     },
+    BackDrop: {
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+    },
+    BlackImage: {
+        width: '100%',
+    }
 })
