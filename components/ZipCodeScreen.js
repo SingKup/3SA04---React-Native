@@ -6,11 +6,13 @@ import { useNavigation } from '@react-navigation/native';
 
 const availableZipItems = [
     { place: 'Phuket', code: '83120' },
+    { place: 'Phatthalung', code: '93000' },
     { place: 'Hatyai', code: '90110' },
     { place: 'Trang', code: '92000' },
     { place: 'Chiangmai', code: '50000' },
     { place: 'Khonkaen', code: '40000' },
     { place: 'Chonburi', code: '20000' },
+    { place: 'Nonthaburi', code: '11150' }
 ]
 const ZipItem = ({ place, code, navigation }) => (
     <TouchableHighlight onPress={() => navigation.navigate('Weather', { zipCode: code })}>

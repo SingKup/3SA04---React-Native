@@ -11,7 +11,8 @@ export default function Weather(props) {
         description: 'description',
         temp: 0,
         CelsiusMin: 0,
-        CelsiusMax: 0
+        CelsiusMax: 0,
+        WindSpeed: 0
     })
 
     useEffect(() => {
@@ -28,7 +29,8 @@ export default function Weather(props) {
                         description: json.weather[0].description,
                         temp: json.main.temp,
                         CelsiusMin: json.main.temp_min,
-                        CelsiusMax: json.main.temp_max
+                        CelsiusMax: json.main.temp_max,
+                        WindSpeed: json.wind.speed
                     });
                 })
                 .catch((error) => {
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     cover: {
         backgroundColor: 'black',
         width: '100%',
-        height: 300,
+        height: 350,
         opacity: 0.4,
         alignItems: 'center',
     },

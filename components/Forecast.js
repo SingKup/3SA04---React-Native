@@ -8,13 +8,14 @@ export default function Forecast(props) {
             <Text style={styles.medium}>{props.description}</Text>
             <View style={{marginTop: 20}}>
                 <Text>
-                    <Text style={styles.big}>{props.temp}  </Text>
+                    <Text style={styles.big}>{props.temp}</Text>
                     <Text style={styles.medium}>°C</Text>
                 </Text>
             </View>
 
             <Text style={styles.medium}>CelsiusMin: {props.CelsiusMin} °C</Text>
             <Text style={styles.medium}>CelsiusMax: {props.CelsiusMax} °C</Text>
+            <Text style={styles.medium}>WindSpeed: {props.WindSpeed} m/s</Text>
 
         </View>
     );
