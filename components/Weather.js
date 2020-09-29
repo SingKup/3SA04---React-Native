@@ -9,7 +9,9 @@ export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: 'main',
         description: 'description',
-        temp: 0
+        temp: 0,
+        CelsiusMin: 0,
+        CelsiusMax: 0
     })
 
     useEffect(() => {
@@ -25,6 +27,8 @@ export default function Weather(props) {
                         main: json.weather[0].main,
                         description: json.weather[0].description,
                         temp: json.main.temp,
+                        CelsiusMin: json.main.temp_min,
+                        CelsiusMax: json.main.temp_max
                     });
                 })
                 .catch((error) => {
@@ -32,7 +36,6 @@ export default function Weather(props) {
                 });
         }
     }, [props.zipCode])
-
 
     return (
         <View style={styles.FullScreen}>
@@ -48,14 +51,13 @@ export default function Weather(props) {
 const styles = StyleSheet.create({
     backdrop: {
         alignItems: 'center',
-
         width: '100%',
         height: '100%'
     },
     cover: {
         backgroundColor: 'black',
         width: '100%',
-        height: 250,
+        height: 300,
         opacity: 0.4,
         alignItems: 'center',
     },

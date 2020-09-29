@@ -12,6 +12,10 @@ export default function Forecast(props) {
                     <Text style={styles.medium}>°C</Text>
                 </Text>
             </View>
+
+            <Text style={styles.medium}>CelsiusMin: {props.CelsiusMin} °C</Text>
+            <Text style={styles.medium}>CelsiusMax: {props.CelsiusMax} °C</Text>
+
         </View>
     );
 }
@@ -22,6 +26,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     big: {
+        alignItems: 'center',
         marginTop: 20,
         fontSize: 30,
         color: 'white',
